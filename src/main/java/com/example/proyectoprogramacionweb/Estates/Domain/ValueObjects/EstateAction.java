@@ -11,7 +11,7 @@ public class EstateAction extends StringValueObject {
     }
 
     private void validate(String action) {
-        if(!action.equals("rentar") && !action.equals("vender")){
+        if(!action.equals("rent") && !action.equals("sell")){
             throw new InvalidEstateAction("La accion del inmueble debe ser rentar o vender");
         }
     }

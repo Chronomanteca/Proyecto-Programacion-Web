@@ -1,4 +1,4 @@
-package com.example.proyectoprogramacionweb.Estates.Application.FindEstateByCity;
+package com.example.proyectoprogramacionweb.Estates.Application.Find;
 
 import com.example.proyectoprogramacionweb.Estates.Domain.Estate;
 import com.example.proyectoprogramacionweb.Estates.Domain.Exceptions.EstateNotFoundByCity;
