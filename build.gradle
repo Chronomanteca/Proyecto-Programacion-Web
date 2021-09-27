@@ -13,8 +13,13 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
+	implementation 'org.springframework:spring-orm:5.3.10'
+	implementation 'org.apache.tomcat:tomcat-dbcp:10.0.8'
+	implementation 'org.hibernate:hibernate-core:5.5.7.Final'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.2'
 }
 
 test {
