@@ -31,8 +31,13 @@ Se debe enviar el link del repositorio público con la siguiente información:
 Se debe enviar el link del repositorio público con la siguiente información:
 * Proyecto con los todos los casos de uso implementados utilizando DDD (*Domain Driven Design*)
 * Prototipos de la interfaz gráfica
-* Definición de eventos.
+* Definición de eventos implementados en spring.
+* Endpoints completos
+* Autenticacion y autorizacion
+* Mockups
+* BONO: Trabajo en Rabbit
 > Fecha de entrega y sustentación: **octubre 25 de 2021**
+> 
 
 ### Entrega 3 (*30%*)
 Se debe enviar el link del repositorio público con la siguiente información:
