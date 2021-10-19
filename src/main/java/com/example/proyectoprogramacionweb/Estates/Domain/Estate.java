@@ -1,11 +1,14 @@
 package com.example.proyectoprogramacionweb.Estates.Domain;
 
+import com.example.proyectoprogramacionweb.Estates.Domain.Entities.EstateAppointment;
 import com.example.proyectoprogramacionweb.Estates.Domain.ValueObjects.*;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Estate {
     private EstateId estateId;
@@ -19,34 +22,38 @@ public class Estate {
     private EstateAddress address;
     private EstateDescription description;
     private EnterpriseId enterpriseId;
+    private Optional<List<EstateAppointment>> appointments;
 
-    public Estate(EstateId estateId, EstatePrice estatePrice, EstateType estateType, EstateAction estateAction,
-                  EstateRoomsNumber estateRoomsNumber, EstateBathroomNumber estateBathroomNumber,
-                  EstateArea estateArea, EstateCity estateCity, EstateAddress estateAddress,
-                  EstateDescription estateDescription, EnterpriseId enterpriseId) {
+    public Estate(EstateId estateId, EstatePrice price, EstateType type, EstateAction action,
+                  EstateRoomsNumber roomsNumber, EstateBathroomNumber bathroomNumber, EstateArea area,
+                  EstateCity city, EstateAddress address, EstateDescription description,
+                  EnterpriseId enterpriseId, Optional<List<EstateAppointment>> appointments) {
         this.estateId = estateId;
-        this.price = estatePrice;
-        this.type = estateType;
-        this.action = estateAction;
-        this.roomsNumber = estateRoomsNumber;
-        this.bathroomNumber = estateBathroomNumber;
-        this.area = estateArea;
-        this.city = estateCity;
-        this.address = estateAddress;
-        this.description = estateDescription;
+        this.price = price;
+        this.type = type;
+        this.action = action;
+        this.roomsNumber = roomsNumber;
+        this.bathroomNumber = bathroomNumber;
+        this.area = area;
+        this.city = city;
+        this.address = address;
+        this.description = description;
         this.enterpriseId = enterpriseId;
+        this.appointments = appointments;
     }
+
     public static Estate Create(EstateId estateId, EstatePrice estatePrice, EstateType estateType,
                                 EstateAction estateAction, EstateRoomsNumber estateRoomsNumber,
                                 EstateBathroomNumber estateBathroomNumber,
                                 EstateArea estateArea, EstateCity estateCity, EstateAddress estateAddress,
-                                EstateDescription estateDescription,EnterpriseId enterpriseId){
+                                EstateDescription estateDescription, EnterpriseId enterpriseId){
         return new Estate(estateId,estatePrice,estateType,estateAction,estateRoomsNumber,estateBathroomNumber,
-                estateArea,estateCity, estateAddress, estateDescription, enterpriseId);
+                estateArea,estateCity, estateAddress, estateDescription,
+                enterpriseId,Optional.empty());
     }
 
     public HashMap<String,Object> data(){
-        return new HashMap<String,Object>(){{
+        HashMap<String,Object> data = new HashMap<>(){{
             put("estateId",estateId.value());
             put("estatePrice",price.value());
             put("estateType", type.value());
@@ -57,8 +64,19 @@ public class Estate {
             put("estateCity", city.value());
             put("estateAddress", address.value());
             put("estateDescription", description.value());
-            put("enterpriseId", enterpriseId.value());
         }};
+        data.putAll(dataAppointmets());
+        return data;
+    }
+    public HashMap<String,Object> dataAppointmets(){
+        HashMap<String, Object> data = new HashMap<>();
+        if(this.appointments.isPresent()) {
+            data.put("appointments", this.appointments.get());
+        }
+        else{
+            data.put("appointments", null);
+        }
+        return data;
     }
 
     @Override
@@ -66,11 +84,11 @@ public class Estate {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Estate estate = (Estate) o;
-        return Objects.equals(estateId, estate.estateId) && Objects.equals(price, estate.price) && Objects.equals(type, estate.type) && Objects.equals(action, estate.action) && Objects.equals(roomsNumber, estate.roomsNumber) && Objects.equals(bathroomNumber, estate.bathroomNumber) && Objects.equals(area, estate.area) && Objects.equals(city, estate.city) && Objects.equals(address, estate.address) && Objects.equals(description, estate.description) && Objects.equals(enterpriseId, estate.enterpriseId);
+        return Objects.equals(estateId, estate.estateId) && Objects.equals(price, estate.price) && Objects.equals(type, estate.type) && Objects.equals(action, estate.action) && Objects.equals(roomsNumber, estate.roomsNumber) && Objects.equals(bathroomNumber, estate.bathroomNumber) && Objects.equals(area, estate.area) && Objects.equals(city, estate.city) && Objects.equals(address, estate.address) && Objects.equals(description, estate.description) && Objects.equals(enterpriseId, estate.enterpriseId) && Objects.equals(appointments, estate.appointments);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(estateId, price, type, action, roomsNumber, bathroomNumber, area, city, address, description, enterpriseId);
+        return Objects.hash(estateId, price, type, action, roomsNumber, bathroomNumber, area, city, address, description, enterpriseId, appointments);
     }
 }

@@ -30,7 +30,7 @@ public class EstateFindTest {
                 new EstateType("Apartment"), new EstateAction("rent"), new EstateRoomsNumber(5),
                 new EstateBathroomNumber(3), new EstateArea(150d), new EstateCity("Bogotá"),
                 new EstateAddress("Calle 1#4-48"), new EstateDescription("Apto bonito"),
-                new EnterpriseId("4449d12e-2dbd-4d6c-abb2-e374e232f33c"));
+                new EnterpriseId("df4d35cd-f67a-45ef-9a33-5cadf1b29969"), null);
         this.repository = Mockito.mock(EstateRepository.class);
         this.list = new ArrayList<Estate>();
         list.add(estate);
