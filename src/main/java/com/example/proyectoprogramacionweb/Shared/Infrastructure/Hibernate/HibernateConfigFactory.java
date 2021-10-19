@@ -49,8 +49,8 @@ public class HibernateConfigFactory {
 
     private DataSource dataSource() {
         String url = "localhost:3306/estate_management";
-        String userName = "project";
-        String password = "EstateManagement";
+        String userName = "user";
+        String password = "1234";
 
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:mysql://" + url);
