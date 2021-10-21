@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.example.proyectoprogramacionweb.Users.Visitor.Domain.Visitor" table="Visitor">
+
+        <composite-id name="visitorId" class="com.example.proyectoprogramacionweb.Shared.Domain.Ids.VisitorId" access="field">
+            <key-property name="value" column="idVisitors" access="field" length="36"/>
+        </composite-id>
+
+        <component name="name" class="com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorName" access="field">
+            <property name="value" column="name" access="field" type="string"/>
+        </component>
+
+        <component name="age" class="com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorAge" access="field">
+            <property name="value" column="age" access="field" type="integer"/>
+        </component>
+
+        <component name="phoneNumber" class="com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorPhoneNumber" access="field">
+            <property name="value" column="phoneNumber" access="field" type="integer"/>
+        </component>
+
+        <component name="email" class="com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorEmail" access="field">
+            <property name="value" column="mail" access="field" type="string"/>
+        </component>
+
+    </class>
+</hibernate-mapping>

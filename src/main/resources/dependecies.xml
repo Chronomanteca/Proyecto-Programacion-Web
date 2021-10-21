@@ -7,8 +7,14 @@
 
     <bean id="AppointmentRepository" class="com.example.proyectoprogramacionweb.Users.Appointment.Infrastructure.Hibernate.HibernateAppointmentRepository"/>
 
+    <bean id="EnterpriseRepository" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Hibernate.HibernateEnterpriseRepository"/>
+
     <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator">
         <constructor-arg ref="EstateRepository" />
+    </bean>
+
+    <bean id="EnterpriseCreator" class="com.example.proyectoprogramacionweb.Users.Enterprise.Application.Create.EnterpriseCreator">
+        <constructor-arg ref="EnterpriseRepository"/>
     </bean>
 
     <bean id="AppointmentCreator" class="com.example.proyectoprogramacionweb.Users.Appointment.Application.Create.AppointmentCreator">

@@ -27,8 +27,12 @@ public class HibernateConfigFactory {
         sessionFactory.setHibernateProperties(this.hibernateProperties());
 
         FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Estates/Infrastructure/Hibernate/Estate.hbm.xml");
+        FileSystemResource resource2 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Enterprise/Infrastructure/Hibernate/Enterprise.hbm.xml");
+        FileSystemResource resource3 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Appointment/Infrastructure/Hibernate/Appointment.hbm.xml");
+        FileSystemResource resource4 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Visitor/Infrastructure/Hibernate/Visitor.hbm.xml");
 
-        sessionFactory.setMappingLocations(resource1);
+
+        sessionFactory.setMappingLocations(resource1,resource2,resource3,resource4);
         return sessionFactory;
     }
 
@@ -50,7 +54,7 @@ public class HibernateConfigFactory {
     private DataSource dataSource() {
         String url = env.getProperty("datasource.url");
         String userName = env.getProperty("datasource.username");
-        String password = env.getProperty("datasource.username");
+        String password = env.getProperty("datasource.password");
 
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:mysql://" + url);
