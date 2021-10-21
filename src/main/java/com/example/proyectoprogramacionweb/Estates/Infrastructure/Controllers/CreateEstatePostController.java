@@ -12,23 +12,23 @@ import java.util.HashMap;
 
 @RestController
 @Tag(name="Estate", description = "The Estate API")
-@RequestMapping(value = "/Estate")
+@RequestMapping(value = "/enterprise/{enterpriseId}")
 public class CreateEstatePostController {
 
     @Autowired
     private EstateCreator creator;
 
     @Operation(summary = "Create a new Estate", description = "Create new Estate", tags = {"Estate"})
-    @PostMapping(value = "/")
+    @PostMapping(value = "/properties")
     public ResponseEntity execute(@RequestBody EstateRequest request){
-        this.creator.execute(request.getEsateId(),request.getPrice(),request.getType(),request.getAction(),
+        this.creator.execute(request.getEstateId(),request.getPrice(),request.getType(),request.getAction(),
                 request.getRoomsNumber(),request.getBathroomNumber(),request.getArea(),request.getCity(),
-                request.getAddress(),request.getDescription(),request.getEsterpriseId());
+                request.getAddress(),request.getDescription(),request.getEnterpriseId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
     static class EstateRequest{
-        private String esateId;
+        private String estateId;
         private double price;
         private String type;
         private String action;
@@ -38,14 +38,14 @@ public class CreateEstatePostController {
         private String city;
         private String address;
         private String description;
-        private String esterpriseId;
+        private String enterpriseId;
 
-        public String getEsateId() {
-            return esateId;
+        public String getEstateId() {
+            return estateId;
         }
 
-        public void setEsateId(String esateId) {
-            this.esateId = esateId;
+        public void setEstateId(String estateId) {
+            this.estateId = estateId;
         }
 
         public double getPrice() {
@@ -120,12 +120,12 @@ public class CreateEstatePostController {
             this.description = description;
         }
 
-        public String getEsterpriseId() {
-            return esterpriseId;
+        public String getEnterpriseId() {
+            return enterpriseId;
         }
 
-        public void setEsterpriseId(String esterpriseId) {
-            this.esterpriseId = esterpriseId;
+        public void setEnterpriseId(String enterpriseId) {
+            this.enterpriseId = enterpriseId;
         }
 
         public EstateRequest() {

@@ -5,7 +5,14 @@
 
     <bean id="EstateRepository" class="com.example.proyectoprogramacionweb.Estates.Infrastructure.Hibernate.HibernateEstateRepository"/>
 
+    <bean id="AppointmentRepository" class="com.example.proyectoprogramacionweb.Users.Appointment.Infrastructure.Hibernate.HibernateAppointmentRepository"/>
+
     <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator">
         <constructor-arg ref="EstateRepository" />
     </bean>
+
+    <bean id="AppointmentCreator" class="com.example.proyectoprogramacionweb.Users.Appointment.Application.Create.AppointmentCreator">
+        <constructor-arg ref="AppointmentRepository"/>
+    </bean>
+
 </beans>

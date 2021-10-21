@@ -1,5 +1,6 @@
 package com.example.proyectoprogramacionweb.Shared.Infrastructure.Hibernate;
 
+import com.example.proyectoprogramacionweb.Estates.Domain.ValueObjects.EstateCity;
 import com.example.proyectoprogramacionweb.Shared.Domain.Aggregate.CustomUUID;
 import org.hibernate.SessionFactory;
 

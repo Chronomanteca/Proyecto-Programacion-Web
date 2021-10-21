@@ -25,8 +25,7 @@ public class CustomUUID implements Serializable {
         return value;
     }
 
-    private void validateUUIDFormatRule(String value)
-    {
+    private void validateUUIDFormatRule(String value) {
         try {
             UUID.fromString(value);
         }

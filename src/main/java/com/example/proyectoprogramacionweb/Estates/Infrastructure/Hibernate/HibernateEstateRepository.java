@@ -27,7 +27,7 @@ public class HibernateEstateRepository extends HibernateRepository<Estate> imple
 
     @Override
     public Optional<Estate> find(EstateId id) {
-        return find(id);
+        return super.byId(id);
     }
 
     @Override

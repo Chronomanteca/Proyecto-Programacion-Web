@@ -2,7 +2,7 @@ package com.example.proyectoprogramacionweb.Shared.Infrastructure.Hibernate;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.hibernate.cfg.AvailableSettings;
-import org.hibernate.cfg.Environment;
+import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +17,8 @@ import java.util.Properties;
 @Configuration
 public class HibernateConfigFactory {
 
-    /*@Autowired
-    private Environment env;*/
+    @Autowired
+    private Environment env;
 
     @Bean("session-factory")
     public LocalSessionFactoryBean sessionFactory() {
@@ -48,9 +48,9 @@ public class HibernateConfigFactory {
     }
 
     private DataSource dataSource() {
-        String url = "localhost:3306/estate_management";
-        String userName = "user";
-        String password = "1234";
+        String url = env.getProperty("datasource.url");
+        String userName = env.getProperty("datasource.username");
+        String password = env.getProperty("datasource.username");
 
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:mysql://" + url);

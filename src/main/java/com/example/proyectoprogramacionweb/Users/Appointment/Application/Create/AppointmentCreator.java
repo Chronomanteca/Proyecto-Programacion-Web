@@ -10,18 +10,16 @@ import com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects
 
 public class AppointmentCreator {
     private AppointmentRepository repository;
-    private DomainAppointmentDateValidator validator;
+    //private DomainAppointmentDateValidator validator;
 
-    public AppointmentCreator(AppointmentRepository repository, DomainAppointmentDateValidator validator) {
+    public AppointmentCreator(AppointmentRepository repository) {
         this.repository = repository;
-        this.validator = validator;
     }
 
     public void execute(String estateId, String visitorId, String date){
         //Validar la fecha de la cita
-        AppointmentDate appointmentDate = validator.execute(date);
         Appointment appointment = Appointment.Create(new EstateId(estateId),
-                new VisitorId(visitorId), appointmentDate);
+                new VisitorId(visitorId), new AppointmentDate(date));
         repository.save(appointment);
     }
 }

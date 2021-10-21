@@ -5,5 +5,6 @@ import com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects
 
 public interface AppointmentRepository {
     void save(Appointment appointment);
-    Boolean validateDate(AppointmentDate date);
+    void update(Appointment appointment);
+    void delete(Appointment appointment);
 }
