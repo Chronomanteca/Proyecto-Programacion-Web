@@ -13,7 +13,7 @@ public class EstateAppointment {
     }
     public HashMap<String,Object> data(){
         return new HashMap<>(){{
-            put("appointmenDate",appointmenDate);
+            put("appointmentDate",appointmenDate);
             put("visitorId",visitorId);
         }};
     }
