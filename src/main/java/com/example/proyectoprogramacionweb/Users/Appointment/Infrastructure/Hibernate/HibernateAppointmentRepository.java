@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
 
 @Transactional
 public class HibernateAppointmentRepository extends HibernateRepository<Appointment> implements AppointmentRepository {
@@ -29,5 +31,10 @@ public class HibernateAppointmentRepository extends HibernateRepository<Appointm
     @Override
     public void delete(Appointment appointment) {
         deleteEntity(appointment);
+    }
+
+    @Override
+    public Optional<List<Appointment>> findAll() {
+        return getAll();
     }
 }
