@@ -91,6 +91,4 @@ public class SearchEstateController {
 
         return new ResponseEntity<>(candidates, HttpStatus.FOUND);
     }
-
-
 }
