@@ -1,6 +1,9 @@
 package com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects;
 
 import com.example.proyectoprogramacionweb.Shared.Domain.Aggregate.StringValueObject;
+import com.example.proyectoprogramacionweb.Users.Visitor.Domain.Exceptions.InvalidVisitorEmailFormat;
+
+import java.util.regex.Pattern;
 
 public class VisitorEmail extends StringValueObject {
     private VisitorEmail() {}
@@ -10,6 +13,13 @@ public class VisitorEmail extends StringValueObject {
     }
 
     private void validate(String email) {
-        //TODO: Validar el correo del visitante
+        emailFormat(email);
+    }
+
+    private void emailFormat(String email){
+        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+        if(!Pattern.matches(email,"")){
+            throw new InvalidVisitorEmailFormat("El email ingresado no tiene un formato valido");
+        }
     }
 }

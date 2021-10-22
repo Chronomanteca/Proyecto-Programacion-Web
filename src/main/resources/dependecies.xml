@@ -9,6 +9,15 @@
 
     <bean id="EnterpriseRepository" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Hibernate.HibernateEnterpriseRepository"/>
 
+
+    <bean id="TokenGeneration" class="com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration"/>
+
+    <bean id="UserLogin" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.UserLogin">
+        <constructor-arg ref="TokenGeneration" />
+    </bean>
+
+
+
     <bean id="VisitorRepository" class="com.example.proyectoprogramacionweb.Users.Visitor.Infrastructure.Hibernate.HibernateVisitorRepository"/>
 
     <bean id="DomainEstateFinder" class="com.example.proyectoprogramacionweb.Estates.Domain.Services.DomainEstateFinder">
