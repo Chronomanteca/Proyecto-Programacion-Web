@@ -31,7 +31,6 @@ public class HibernateConfigFactory {
         FileSystemResource resource3 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Appointment/Infrastructure/Hibernate/Appointment.hbm.xml");
         FileSystemResource resource4 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Visitor/Infrastructure/Hibernate/Visitor.hbm.xml");
 
-
         sessionFactory.setMappingLocations(resource1,resource2,resource3,resource4);
         return sessionFactory;
     }

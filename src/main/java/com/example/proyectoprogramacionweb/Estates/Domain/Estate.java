@@ -55,6 +55,18 @@ public class Estate {
                 enterpriseId,null);
     }
 
+    public void updatePrice(EstatePrice price){
+        this.price = price;
+    }
+
+    public void updateAction(EstateAction action){
+        this.action = action;
+    }
+
+    public void updateDescription(EstateDescription description){
+        this.description = description;
+    }
+
     public HashMap<String,Object> data(){
         HashMap<String,Object> data = new HashMap<>(){{
             put("estateId",estateId.value());

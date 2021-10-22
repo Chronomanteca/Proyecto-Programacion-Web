@@ -18,5 +18,9 @@
             <property name="value" column="date" access="field" type="string"/>
         </component>
 
+        <component name="state" class="com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects.AppointmentState" access="field">
+            <property name="value" column="state" access="field" type="string"/>
+        </component>
+
     </class>
 </hibernate-mapping>
