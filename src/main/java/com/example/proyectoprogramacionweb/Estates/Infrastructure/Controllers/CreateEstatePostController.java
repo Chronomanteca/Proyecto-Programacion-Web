@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-
 @RestController
 @Tag(name="Estate", description = "The Estate API")
 @RequestMapping(value = "/enterprise/{enterpriseId}")
