@@ -12,6 +12,9 @@ public class Appointment {
     private VisitorId visitorId;
     private AppointmentDate appointmentDate;
 
+    private Appointment() {
+    }
+
     public Appointment(EstateId estateId, VisitorId visitorId, AppointmentDate appointmentDate) {
         this.estateId = estateId;
         this.visitorId = visitorId;
@@ -22,9 +25,9 @@ public class Appointment {
     }
     public HashMap<String,Object> data(){
         return new HashMap<String,Object>(){{
-            put("estateId",estateId);
-            put("visitorId",visitorId);
-            put("appointmentDate",appointmentDate);
+            put("estateId",estateId.value());
+            put("visitorId",visitorId.value());
+            put("appointmentDate",appointmentDate.value());
         }};
     }
 

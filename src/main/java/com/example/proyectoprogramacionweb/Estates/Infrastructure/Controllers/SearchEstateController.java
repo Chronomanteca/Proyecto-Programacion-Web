@@ -13,15 +13,15 @@ import java.util.List;
 public class SearchEstateController {
 
     @Operation(summary = "Gets the form to be filled in order to search an estate", tags = {"Estate", "Search"})
-    @GetMapping(value = "/search")
+    @GetMapping(value = "/search/form")
     public ResponseEntity getSearchForm(){
         //TODO: GET to obtain all the page resources that are going to be shown in the search form
 
-        return ResponseEntity.status(HttpStatus.FOUND).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
     @Operation(summary = "Process the chosen criteria and offers results", tags = {"Estate", "Search"})
-    @PostMapping(value = "/search")
+    @GetMapping(value = "/search")
     public @ResponseBody ResponseEntity<List<Estate>> getSearchResults(@RequestParam(name = "est_type") String estateType,
                                                                        @RequestParam(name = "min_price") Double minPrice,
                                                                        @RequestParam(name = "max_price") Double maxPrice,
@@ -86,9 +86,10 @@ public class SearchEstateController {
                 candidates.add(e);
         });
 
-        if(candidates.isEmpty());
-            //TODO: Show that there´s no items that match the criteria in the frontend
+        if(candidates.isEmpty()){ //TODO: Show that there´s no items that match the criteria in the frontend
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
 
-        return new ResponseEntity<>(candidates, HttpStatus.FOUND);
+        return new ResponseEntity<>(candidates, HttpStatus.OK);
     }
 }

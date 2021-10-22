@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.example.proyectoprogramacionweb.Users.Appointment.Domain.Appointment" table="appointment">
+    <class name="com.example.proyectoprogramacionweb.Users.Appointment.Domain.Appointment" table="Appointment">
 
         <composite-id name="estateId" class="com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId" access="field">
             <key-property name="value" column="idEstates" access="field" length="36"/>
