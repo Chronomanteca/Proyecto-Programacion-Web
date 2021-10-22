@@ -31,6 +31,11 @@ public class HibernateEstateRepository extends HibernateRepository<Estate> imple
     }
 
     @Override
+    public Optional<List<Estate>> findAll(){
+        return getAll();
+    }
+
+    @Override
     public Optional<List<Estate>> findByCity(EstateCity city) {
         return findByCity(city);
     }
