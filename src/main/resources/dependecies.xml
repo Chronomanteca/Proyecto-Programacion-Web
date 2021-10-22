@@ -9,6 +9,13 @@
 
     <bean id="EnterpriseRepository" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Hibernate.HibernateEnterpriseRepository"/>
 
+    <bean id="TokenGeneration" class="com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration"/>
+
+    <bean id="UserLogin" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.UserLogin">
+        <constructor-arg ref="TokenGeneration" />
+    </bean>
+
+
     <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator">
         <constructor-arg ref="EstateRepository" />
     </bean>
