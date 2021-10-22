@@ -9,12 +9,20 @@
 
     <bean id="EnterpriseRepository" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Hibernate.HibernateEnterpriseRepository"/>
 
+
     <bean id="TokenGeneration" class="com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration"/>
 
     <bean id="UserLogin" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.UserLogin">
         <constructor-arg ref="TokenGeneration" />
     </bean>
 
+
+
+    <bean id="VisitorRepository" class="com.example.proyectoprogramacionweb.Users.Visitor.Infrastructure.Hibernate.HibernateVisitorRepository"/>
+
+    <bean id="DomainEstateFinder" class="com.example.proyectoprogramacionweb.Estates.Domain.Services.DomainEstateFinder">
+        <constructor-arg ref="EstateRepository"/>
+    </bean>
 
     <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator">
         <constructor-arg ref="EstateRepository" />
@@ -26,6 +34,25 @@
 
     <bean id="AppointmentCreator" class="com.example.proyectoprogramacionweb.Users.Appointment.Application.Create.AppointmentCreator">
         <constructor-arg ref="AppointmentRepository"/>
+    </bean>
+
+    <bean id="VisitorCreator" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.VisitorCreator">
+        <constructor-arg ref="VisitorRepository"/>
+    </bean>
+
+    <bean id="EstatePriceUpdater" class="com.example.proyectoprogramacionweb.Estates.Application.Update.EstatePriceUpdater">
+        <constructor-arg ref="EstateRepository"/>
+        <constructor-arg ref="DomainEstateFinder"/>
+    </bean>
+
+    <bean id="EstateActionUpdater" class="com.example.proyectoprogramacionweb.Estates.Application.Update.EstateActionUpdater">
+        <constructor-arg ref="EstateRepository"/>
+        <constructor-arg ref="DomainEstateFinder"/>
+    </bean>
+
+    <bean id="EstateDescriptionUpdater" class="com.example.proyectoprogramacionweb.Estates.Application.Update.EstateDescriptionUpdater">
+        <constructor-arg ref="EstateRepository"/>
+        <constructor-arg ref="DomainEstateFinder"/>
     </bean>
 
 </beans>

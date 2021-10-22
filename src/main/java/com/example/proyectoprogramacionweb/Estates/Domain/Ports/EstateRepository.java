@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface EstateRepository {
     void save(Estate estate);
     Optional<Estate> find(EstateId id);
+    Optional<List<Estate>> findAll();
     Optional<List<Estate>> findByCity(EstateCity city);
 }

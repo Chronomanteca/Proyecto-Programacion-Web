@@ -22,12 +22,15 @@ public class Estate {
     private EstateAddress address;
     private EstateDescription description;
     private EnterpriseId enterpriseId;
-    private Optional<List<EstateAppointment>> appointments;
+    private List<EstateAppointment> appointments;
+
+    public Estate() {
+    }
 
     public Estate(EstateId estateId, EstatePrice price, EstateType type, EstateAction action,
                   EstateRoomsNumber roomsNumber, EstateBathroomNumber bathroomNumber, EstateArea area,
                   EstateCity city, EstateAddress address, EstateDescription description,
-                  EnterpriseId enterpriseId, Optional<List<EstateAppointment>> appointments) {
+                  EnterpriseId enterpriseId, List<EstateAppointment> appointments) {
         this.estateId = estateId;
         this.price = price;
         this.type = type;
@@ -49,7 +52,19 @@ public class Estate {
                                 EstateDescription estateDescription, EnterpriseId enterpriseId){
         return new Estate(estateId,estatePrice,estateType,estateAction,estateRoomsNumber,estateBathroomNumber,
                 estateArea,estateCity, estateAddress, estateDescription,
-                enterpriseId,Optional.empty());
+                enterpriseId,null);
+    }
+
+    public void updatePrice(EstatePrice price){
+        this.price = price;
+    }
+
+    public void updateAction(EstateAction action){
+        this.action = action;
+    }
+
+    public void updateDescription(EstateDescription description){
+        this.description = description;
     }
 
     public HashMap<String,Object> data(){
@@ -64,18 +79,14 @@ public class Estate {
             put("estateCity", city.value());
             put("estateAddress", address.value());
             put("estateDescription", description.value());
+            put("estateEnterpriseId", enterpriseId.value()); //Agregado por RAMO, no se si de les habia olvidado ponerlo o si simplemente por diseño no se podia poner ahí
         }};
         data.putAll(dataAppointmets());
         return data;
     }
     public HashMap<String,Object> dataAppointmets(){
         HashMap<String, Object> data = new HashMap<>();
-        if(this.appointments.isPresent()) {
-            data.put("appointments", this.appointments.get());
-        }
-        else{
-            data.put("appointments", null);
-        }
+        data.replace("appointments", null);
         return data;
     }
 
