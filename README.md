@@ -1,3 +1,5 @@
+![tests](https://github.com/Chronomanteca/Proyecto-Programacion-Web/actions/workflows/gradle.yml/badge.svg)
+
 # Aplicación de administración inmobiliaria
 
 ## **Enunciado y requerimientos en palabras**
