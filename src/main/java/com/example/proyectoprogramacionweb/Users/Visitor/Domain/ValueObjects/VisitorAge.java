@@ -11,7 +11,7 @@ public class VisitorAge extends IntegerValueObject {
     }
 
     private void validate(Integer age) {
-        validate(age);
+        ageRange(age);
     }
 
     private void ageRange(Integer age){

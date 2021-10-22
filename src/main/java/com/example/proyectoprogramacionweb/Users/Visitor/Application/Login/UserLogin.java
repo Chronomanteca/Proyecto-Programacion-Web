@@ -8,6 +8,10 @@ public class UserLogin {
 
     private final TokenGeneration tokenGeneration;
 
+    public TokenGeneration getTokenGeneration() {
+        return tokenGeneration;
+    }
+
     public UserLogin(TokenGeneration tokenGeneration) {
         this.tokenGeneration = tokenGeneration;
     }
