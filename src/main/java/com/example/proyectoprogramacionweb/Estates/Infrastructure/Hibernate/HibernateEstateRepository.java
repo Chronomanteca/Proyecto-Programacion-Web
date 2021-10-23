@@ -39,4 +39,10 @@ public class HibernateEstateRepository extends HibernateRepository<Estate> imple
     public Optional<List<Estate>> findByCity(EstateCity city) {
         return findByCity(city);
     }
+
+    @Override
+    public void delete(Estate estate) {
+        super.deleteEntity(estate);
+    }
+
 }

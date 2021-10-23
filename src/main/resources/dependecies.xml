@@ -9,16 +9,28 @@
 
     <bean id="EnterpriseRepository" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Hibernate.HibernateEnterpriseRepository"/>
 
+    <bean id="RabbitMqPublisher" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqPublisher"/>
+
+    <bean id="RabbitMqEventBus" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqEventBus">
+        <constructor-arg ref="RabbitMqPublisher" />
+    </bean>
+
     <bean id="TokenGeneration" class="com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration"/>
 
     <bean id="VisitorLogin" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.VisitorLogin">
         <constructor-arg ref="TokenGeneration" />
     </bean>
 
+
+
     <bean id="VisitorRepository" class="com.example.proyectoprogramacionweb.Users.Visitor.Infrastructure.Hibernate.HibernateVisitorRepository"/>
 
     <bean id="DomainEstateFinder" class="com.example.proyectoprogramacionweb.Estates.Domain.Services.DomainEstateFinder">
         <constructor-arg ref="EstateRepository"/>
+    </bean>
+
+    <bean id="DomainAppointmentFinder" class="com.example.proyectoprogramacionweb.Users.Appointment.Domain.Services.DomainAppointmentFinder">
+        <constructor-arg ref="AppointmentRepository"/>
     </bean>
 
     <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator">
@@ -52,4 +64,8 @@
         <constructor-arg ref="DomainEstateFinder"/>
     </bean>
 
+    <bean id="EstateDeleter" class="com.example.proyectoprogramacionweb.Estates.Application.Delete.EstateDeleter">
+        <constructor-arg ref="EstateRepository"/>
+        <constructor-arg ref="DomainEstateFinder"/>
+    </bean>
 </beans>
