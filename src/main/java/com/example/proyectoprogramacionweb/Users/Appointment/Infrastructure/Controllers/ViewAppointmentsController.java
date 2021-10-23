@@ -52,9 +52,9 @@ public class ViewAppointmentsController {
 
         if(appointments.isPresent()){
             appointments.get().forEach(a -> {
-                appointmentsRequest.add(new AppointmentRequest((String)a.data().get("estateId"),
-                        (String)a.data().get("visitorId"),
-                        (String)a.data().get("appointmentDate")));
+                appointmentsRequest.add(new AppointmentRequest(((EstateId) a.data().get("estateId")).value(),
+                        ((VisitorId) a.data().get("visitorId")).value(),
+                        ((AppointmentDate)a.data().get("appointmentDate")).value()));
             });
 
             return new ResponseEntity<>(appointmentsRequest, HttpStatus.OK);
@@ -69,7 +69,7 @@ public class ViewAppointmentsController {
 
         if(allAppointments.isPresent()){
             allAppointments.get().forEach(a -> {
-                if(((String)a.data().get("visitorId")).compareTo(id.value()) == 0){
+                if((a.data().get("visitorId")).equals(new VisitorId(id.value()))){
                     appointments.add(a);
                 }
             });
@@ -90,8 +90,8 @@ public class ViewAppointmentsController {
         if(allAppointments.isPresent()){
             allAppointments.get().forEach(a -> {
                 allEstates.get().forEach(e -> {
-                    if(((String)a.data().get("estateId")).compareTo((String)e.data().get("estateId")) == 0){
-                        if(((String)e.data().get("estateEnterpriseId")).compareTo(id.value()) == 0){
+                    if((a.data().get("estateId")).equals(e.data().get("estateId"))){
+                        if((e.data().get("estateEnterpriseId")).equals(new EstateId(id.value()))){
                             appointments.add(a);
                         }
                     }

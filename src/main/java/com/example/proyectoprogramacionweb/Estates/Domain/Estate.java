@@ -22,7 +22,7 @@ public class Estate {
     private EstateAddress address;
     private EstateDescription description;
     private EnterpriseId enterpriseId;
-    private List<EstateAppointment> appointments;
+    private Optional<List<EstateAppointment>> appointments;
 
     public Estate() {
     }
@@ -30,7 +30,7 @@ public class Estate {
     public Estate(EstateId estateId, EstatePrice price, EstateType type, EstateAction action,
                   EstateRoomsNumber roomsNumber, EstateBathroomNumber bathroomNumber, EstateArea area,
                   EstateCity city, EstateAddress address, EstateDescription description,
-                  EnterpriseId enterpriseId, List<EstateAppointment> appointments) {
+                  EnterpriseId enterpriseId, Optional<List<EstateAppointment>> appointments) {
         this.estateId = estateId;
         this.price = price;
         this.type = type;
