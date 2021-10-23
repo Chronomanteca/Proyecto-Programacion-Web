@@ -1,5 +1,7 @@
 package com.example.proyectoprogramacionweb.Users.Appointment.Domain.Ports;
 
+import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
+import com.example.proyectoprogramacionweb.Shared.Domain.Ids.VisitorId;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.Appointment;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects.AppointmentDate;
 

@@ -29,6 +29,10 @@
         <constructor-arg ref="EstateRepository"/>
     </bean>
 
+    <bean id="DomainAppointmentFinder" class="com.example.proyectoprogramacionweb.Users.Appointment.Domain.Services.DomainAppointmentFinder">
+        <constructor-arg ref="AppointmentRepository"/>
+    </bean>
+
     <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator">
         <constructor-arg ref="EstateRepository" />
     </bean>
@@ -60,4 +64,8 @@
         <constructor-arg ref="DomainEstateFinder"/>
     </bean>
 
+    <bean id="EstateDeleter" class="com.example.proyectoprogramacionweb.Estates.Application.Delete.EstateDeleter">
+        <constructor-arg ref="EstateRepository"/>
+        <constructor-arg ref="DomainEstateFinder"/>
+    </bean>
 </beans>

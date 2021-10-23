@@ -30,6 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 antMatchers(HttpMethod.POST, "/User/Login").permitAll().
                 antMatchers(HttpMethod.POST, AUTH_WHITELIST).permitAll().
                 antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll().
+                antMatchers(HttpMethod.PUT, AUTH_WHITELIST).permitAll().
+                antMatchers(HttpMethod.DELETE, AUTH_WHITELIST).permitAll().
                 anyRequest().authenticated();
     }
 

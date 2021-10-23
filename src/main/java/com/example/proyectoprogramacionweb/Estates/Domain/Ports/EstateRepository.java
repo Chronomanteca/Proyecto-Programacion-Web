@@ -12,4 +12,5 @@ public interface EstateRepository {
     Optional<Estate> find(EstateId id);
     Optional<List<Estate>> findAll();
     Optional<List<Estate>> findByCity(EstateCity city);
+    void delete(Estate estate);
 }
