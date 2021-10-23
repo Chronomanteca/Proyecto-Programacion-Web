@@ -1,8 +1,8 @@
 package com.example.proyectoprogramacionweb.Users.Visitor.Application.Infrastructure.Controllers;
 
 
-import com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.UserLogin;
-import com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.UserLoginResponse;
+import com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.VisitorLogin;
+import com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.VisitorLoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +15,24 @@ import java.util.HashMap;
 
 @RestController
 //REVISAR DIAGRAMA DE MAPPING
-@RequestMapping(value = "/User")
-public class LoginUserPostController {
+@RequestMapping(value = "/Visitor")
+public class LoginVisitorPostController {
+
+    public VisitorLogin getUserLogin() {
+        return userLogin;
+    }
+
+    public void setUserLogin(VisitorLogin userLogin) {
+        this.userLogin = userLogin;
+    }
 
     @Autowired
-    private UserLogin userLogin;
+    private VisitorLogin userLogin;
 
 
     @PostMapping(value = "/Login")
     public ResponseEntity<HashMap<String, Object>> execute(@RequestBody  UserLoginRequest request){
-        UserLoginResponse response = this.userLogin.execute(request.getUsername(),request.getPassword());
+        VisitorLoginResponse response = this.userLogin.execute(request.getUsername(),request.getPassword());
         return ResponseEntity.status(HttpStatus.OK).body(response.response());
     }
 

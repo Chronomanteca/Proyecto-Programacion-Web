@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Tag(name="Estate", description = "The Estate API")
-@RequestMapping(value = "/enterprise/{enterpriseId}")
+@RequestMapping(value = "/enterprises/{enterpriseId}")
 public class CreateEstatePostController {
 
     @Autowired

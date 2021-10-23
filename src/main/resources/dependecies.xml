@@ -17,7 +17,7 @@
 
     <bean id="TokenGeneration" class="com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration"/>
 
-    <bean id="UserLogin" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.UserLogin">
+    <bean id="VisitorLogin" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.VisitorLogin">
         <constructor-arg ref="TokenGeneration" />
     </bean>
 

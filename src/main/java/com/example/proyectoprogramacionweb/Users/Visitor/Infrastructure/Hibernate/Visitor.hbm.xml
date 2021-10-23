@@ -26,5 +26,10 @@
             <property name="value" column="mail" access="field" type="string"/>
         </component>
 
+        <component name= "password" class="com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorPassword" access="field">
+            <property name="value" column="password" access="field" type="string"/>
+        </component>
+
+
     </class>
 </hibernate-mapping>
