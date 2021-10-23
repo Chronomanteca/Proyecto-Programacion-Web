@@ -3,8 +3,13 @@ package com.example.proyectoprogramacionweb.Users.Visitor.Application.Login;
 
 import com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration;
 import com.example.proyectoprogramacionweb.Shared.Application.TokenGenerationResponse;
+import com.example.proyectoprogramacionweb.Users.Visitor.Domain.Ports.VisitorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserLogin {
+public class VisitorLogin {
+
+    @Autowired
+    VisitorRepository repo;
 
     private final TokenGeneration tokenGeneration;
 
@@ -12,16 +17,19 @@ public class UserLogin {
         return tokenGeneration;
     }
 
-    public UserLogin(TokenGeneration tokenGeneration) {
+    public VisitorLogin(TokenGeneration tokenGeneration) {
         this.tokenGeneration = tokenGeneration;
     }
 
-    public UserLoginResponse execute(String username, String password){
+    public VisitorLoginResponse execute(String username, String password){
         //validate user exists
         //validate correct password
         TokenGenerationResponse responseToken = this.tokenGeneration.execute(username);
-        UserLoginResponse response = new UserLoginResponse(username, responseToken.token());
+        VisitorLoginResponse response = new VisitorLoginResponse(username, responseToken.token());
         return response;
         }
+
+
+
 
 }

@@ -15,7 +15,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] AUTH_WHITELIST = {
             "/v3/api-doc/**",
             "/v3/api-doc.yaml/**",
-            "/swagger-ui/**"
+            "/swagger-ui/**",
+            "/**"
     };
 
     @Override
@@ -24,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class).
                 authorizeRequests().
                 antMatchers(HttpMethod.POST, "/User/Login").permitAll().
+                antMatchers(HttpMethod.POST, AUTH_WHITELIST).permitAll().
                 antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll().
                 anyRequest().authenticated();
     }
