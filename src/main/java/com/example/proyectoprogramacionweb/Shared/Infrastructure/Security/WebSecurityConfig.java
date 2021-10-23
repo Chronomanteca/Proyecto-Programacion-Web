@@ -11,11 +11,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
+    //TODO: Add proper paths
     private static final String[] AUTH_WHITELIST = {
             "/v3/api-doc/**",
             "/v3/api-doc.yaml/**",
             "/swagger-ui/**",
+            "/visitors/**",
+            "/search/",
+            "/",
             "/**"
     };
 
