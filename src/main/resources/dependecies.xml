@@ -9,6 +9,11 @@
 
     <bean id="EnterpriseRepository" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Hibernate.HibernateEnterpriseRepository"/>
 
+    <bean id="RabbitMqPublisher" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqPublisher"/>
+
+    <bean id="RabbitMqEventBus" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqEventBus">
+        <constructor-arg ref="RabbitMqPublisher" />
+    </bean>
 
     <bean id="TokenGeneration" class="com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration"/>
 
