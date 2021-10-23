@@ -1,6 +1,9 @@
 package com.example.proyectoprogramacionweb.Estates.Domain.ValueObjects;
 
+import com.example.proyectoprogramacionweb.Estates.Domain.Exceptions.InvalidEstateCity;
 import com.example.proyectoprogramacionweb.Shared.Domain.Aggregate.StringValueObject;
+
+import java.util.regex.Pattern;
 
 public class EstateCity extends StringValueObject {
     private EstateCity(){}
@@ -10,6 +13,14 @@ public class EstateCity extends StringValueObject {
     }
 
     private void validate(String city) {
-        //TODO: Validacion de la ciudad del inmueble
+        CityFormat(city);
     }
+
+    private void CityFormat(String city){
+        String regex = "[A-Z][a-z]+";
+        if(!Pattern.matches(regex,city)){
+            throw new InvalidEstateCity("El formato de la ciudad no es el correcto, debe contener solo letras y empezar en mayuscula");
+        }
+    }
+
 }

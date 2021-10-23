@@ -17,9 +17,9 @@ public class VisitorName extends StringValueObject {
     }
 
     private void nameFormat(String name){
-        String regex = "[A-Za-z]";
-        if(!Pattern.matches(name,regex)){
-            throw new InvalidVisitorName("El nombre ingresado no es valido");
+        int length = name.length();
+        if(length>45){
+            throw new InvalidVisitorName("El nombre ingresado no es validom, debe tener 45 o menos caracteres");
         }
     }
 

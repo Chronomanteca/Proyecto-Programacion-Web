@@ -16,7 +16,7 @@ public class VisitorPhoneNumber extends IntegerValueObject {
 
     private void phoneNumberLength(Integer phoneNumber){
         int length = (int) (Math.log10(phoneNumber) + 1);
-        if(length != 10){
+        if(length < 10){
             throw new InvalidVisitorPhoneNumber("El numero de telefono ingresado debe tener 10 digitos");
         }
 

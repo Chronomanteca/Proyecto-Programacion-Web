@@ -2,12 +2,12 @@ package com.example.proyectoprogramacionweb.Users.Visitor.Application.Login;
 
 import java.util.HashMap;
 
-public class UserLoginResponse {
+public class VisitorLoginResponse {
 
     private final String userName;
     private final String token;
 
-    public UserLoginResponse(String userName, String token) {
+    public VisitorLoginResponse(String userName, String token) {
         this.userName = userName;
         this.token = token;
     }

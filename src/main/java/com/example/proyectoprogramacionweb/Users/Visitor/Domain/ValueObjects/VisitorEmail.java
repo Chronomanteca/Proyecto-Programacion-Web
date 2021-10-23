@@ -18,7 +18,7 @@ public class VisitorEmail extends StringValueObject {
 
     private void emailFormat(String email){
         String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-        if(!Pattern.matches(email,"")){
+        if(!Pattern.matches(regex,email)){
             throw new InvalidVisitorEmailFormat("El email ingresado no tiene un formato valido");
         }
     }

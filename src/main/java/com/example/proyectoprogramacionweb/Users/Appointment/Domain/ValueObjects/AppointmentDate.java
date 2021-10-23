@@ -12,4 +12,8 @@ public class AppointmentDate extends StringValueObject {
     private void validate(String date) {
         //TODO: Validacion de la fecha
     }
+
+    private void CurrentDate(String date){
+
+    }
 }

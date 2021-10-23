@@ -1,10 +1,7 @@
 package com.example.proyectoprogramacionweb.Users.Visitor.Domain;
 
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.VisitorId;
-import com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorAge;
-import com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorEmail;
-import com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorName;
-import com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorPhoneNumber;
+import com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.*;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -15,19 +12,21 @@ public class Visitor {
     private VisitorAge age;
     private VisitorPhoneNumber phoneNumber;
     private VisitorEmail email;
+    private VisitorPassword password;
 
     public Visitor(VisitorId visitorId, VisitorName visitorName, VisitorAge visitorAge,
-                   VisitorPhoneNumber visitorPhoneNumber, VisitorEmail visitorEmail) {
+                   VisitorPhoneNumber visitorPhoneNumber, VisitorEmail visitorEmail, VisitorPassword visitorPassword) {
         this.visitorId = visitorId;
         this.name = visitorName;
         this.age = visitorAge;
         this.phoneNumber = visitorPhoneNumber;
         this.email = visitorEmail;
+        this.password = visitorPassword;
     }
 
     public static Visitor Create(VisitorId visitorId, VisitorName visitorName, VisitorAge visitorAge,
-                          VisitorPhoneNumber visitorPhoneNumber, VisitorEmail visitorEmail){
-        return new Visitor(visitorId,visitorName,visitorAge,visitorPhoneNumber,visitorEmail);
+                          VisitorPhoneNumber visitorPhoneNumber, VisitorEmail visitorEmail, VisitorPassword visitorPassword){
+        return new Visitor(visitorId,visitorName,visitorAge,visitorPhoneNumber,visitorEmail, visitorPassword);
     }
     public HashMap<String,Object> data(){
         return new HashMap<String,Object>(){{
@@ -36,6 +35,7 @@ public class Visitor {
             put("visitorAge", age);
             put("visitorPhoneNumber", phoneNumber);
             put("visitorEmail", email);
+            put("visitorPassword",password);
         }};
     }
 
@@ -44,11 +44,11 @@ public class Visitor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Visitor visitor = (Visitor) o;
-        return Objects.equals(visitorId, visitor.visitorId) && Objects.equals(name, visitor.name) && Objects.equals(age, visitor.age) && Objects.equals(phoneNumber, visitor.phoneNumber) && Objects.equals(email, visitor.email);
+        return Objects.equals(visitorId, visitor.visitorId) && Objects.equals(name, visitor.name) && Objects.equals(age, visitor.age) && Objects.equals(phoneNumber, visitor.phoneNumber) && Objects.equals(email, visitor.email) && Objects.equals(password, visitor.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(visitorId, name, age, phoneNumber, email);
+        return Objects.hash(visitorId, name, age, phoneNumber, email, password);
     }
 }
