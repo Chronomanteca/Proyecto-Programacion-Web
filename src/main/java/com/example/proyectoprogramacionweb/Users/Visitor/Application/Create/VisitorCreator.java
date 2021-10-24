@@ -1,4 +1,4 @@
-package com.example.proyectoprogramacionweb.Users.Visitor.Application;
+package com.example.proyectoprogramacionweb.Users.Visitor.Application.Create;
 
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.VisitorId;
 import com.example.proyectoprogramacionweb.Users.Visitor.Domain.Ports.VisitorRepository;

@@ -25,7 +25,7 @@ public class TokenGeneration  {
 
     public TokenGenerationResponse execute(String username){
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-                .commaSeparatedStringToAuthorityList("ROLE_USER");
+                .commaSeparatedStringToAuthorityList("ROLE_VISITOR");
         String token = Jwts.builder()
                 .setId(ID)
                 .setSubject(username)

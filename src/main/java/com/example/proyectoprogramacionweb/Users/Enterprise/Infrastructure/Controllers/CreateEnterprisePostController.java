@@ -23,12 +23,30 @@ public class CreateEnterprisePostController {
     @Operation(summary = "Create a new Enterprise", description = "Create new Enterprise", tags = {"Enterprise"})
     @PostMapping(value = "/")
     public ResponseEntity execute(@RequestBody EnterpriseRequest request){
-        this.creator.execute(request.getEnterpriseId(),request.getName());
+        this.creator.execute(request.getEnterpriseId(),request.getName(),request.getEnterpriseEmail(), request.getEnterprisePassword());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
     static class EnterpriseRequest{
         private String enterpriseId;
         private String name;
+        private String enterpriseEmail;
+        private String enterprisePassword;
+
+        public String getEnterpriseEmail() {
+            return enterpriseEmail;
+        }
+
+        public void setEnterpriseEmail(String enterpriseEmail) {
+            this.enterpriseEmail = enterpriseEmail;
+        }
+
+        public String getEnterprisePassword() {
+            return enterprisePassword;
+        }
+
+        public void setEnterprisePassword(String enterprisePassword) {
+            this.enterprisePassword = enterprisePassword;
+        }
 
         public String getEnterpriseId() {
             return this.enterpriseId;

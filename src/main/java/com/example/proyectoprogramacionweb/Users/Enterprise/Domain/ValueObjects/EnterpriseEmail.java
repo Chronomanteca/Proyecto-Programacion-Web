@@ -1,13 +1,15 @@
-package com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects;
+package com.example.proyectoprogramacionweb.Users.Enterprise.Domain.ValueObjects;
 
 import com.example.proyectoprogramacionweb.Shared.Domain.Aggregate.StringValueObject;
 import com.example.proyectoprogramacionweb.Shared.Domain.Exceptions.EmailNotValid;
 
 import java.util.regex.Pattern;
 
-public class VisitorEmail extends StringValueObject {
-    private VisitorEmail() {}
-    public VisitorEmail(String email){
+public class EnterpriseEmail extends StringValueObject {
+
+    private EnterpriseEmail(){}
+
+    public EnterpriseEmail(String email){
         validate(email);
         this.value = email;
     }

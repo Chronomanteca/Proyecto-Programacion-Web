@@ -1,4 +1,4 @@
-package com.example.proyectoprogramacionweb.Users.Visitor.Application.Infrastructure.Controllers;
+package com.example.proyectoprogramacionweb.Users.Visitor.Infrastructure.Controllers;
 
 
 import com.example.proyectoprogramacionweb.Users.Visitor.Application.Login.VisitorLogin;

@@ -21,7 +21,9 @@
         <constructor-arg ref="TokenGeneration" />
     </bean>
 
-
+    <bean id="EnterpriseLogin" class="com.example.proyectoprogramacionweb.Users.Enterprise.Application.Login.EnterpriseLogin">
+        <constructor-arg ref="TokenGeneration" />
+    </bean>
 
     <bean id="VisitorRepository" class="com.example.proyectoprogramacionweb.Users.Visitor.Infrastructure.Hibernate.HibernateVisitorRepository"/>
 
@@ -45,7 +47,7 @@
         <constructor-arg ref="AppointmentRepository"/>
     </bean>
 
-    <bean id="VisitorCreator" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.VisitorCreator">
+    <bean id="VisitorCreator" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Create.VisitorCreator">
         <constructor-arg ref="VisitorRepository"/>
     </bean>
 
