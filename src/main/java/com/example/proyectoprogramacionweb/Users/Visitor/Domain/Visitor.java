@@ -14,6 +14,9 @@ public class Visitor {
     private VisitorEmail email;
     private VisitorPassword password;
 
+    public Visitor() {
+    }
+
     public Visitor(VisitorId visitorId, VisitorName visitorName, VisitorAge visitorAge,
                    VisitorPhoneNumber visitorPhoneNumber, VisitorEmail visitorEmail, VisitorPassword visitorPassword) {
         this.visitorId = visitorId;
