@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -26,4 +27,8 @@ public class HibernateVisitorRepository extends HibernateRepository<Visitor> imp
     public Optional<Visitor> find(VisitorId id) {
         return byId(id);
     }
+
+    @Override
+    public Optional<List<Visitor>> findAll() {  return getAll(); }
+
 }

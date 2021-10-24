@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 @RestController
 //REVISAR DIAGRAMA DE MAPPING
-@RequestMapping(value = "/Visitor")
+@RequestMapping(value = "/Login")
 public class LoginVisitorPostController {
 
     public VisitorLogin getUserLogin() {
@@ -30,7 +30,7 @@ public class LoginVisitorPostController {
     private VisitorLogin userLogin;
 
 
-    @PostMapping(value = "/Login")
+    @PostMapping(value = "/Visitor")
     public ResponseEntity<HashMap<String, Object>> execute(@RequestBody  UserLoginRequest request){
         VisitorLoginResponse response = this.userLogin.execute(request.getUsername(),request.getPassword());
         return ResponseEntity.status(HttpStatus.OK).body(response.response());
