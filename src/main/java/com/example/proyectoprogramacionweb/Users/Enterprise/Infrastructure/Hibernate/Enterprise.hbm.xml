@@ -14,5 +14,13 @@
             <property name="value" column="name" access="field" type="string"/>
         </component>
 
+        <component name="enterpriseEmail" class="com.example.proyectoprogramacionweb.Users.Enterprise.Domain.ValueObjects.EnterpriseEmail" access="field">
+            <property name="value" column="email" access="field" type="string"/>
+        </component>
+
+        <component name="enterprisePassword" class="com.example.proyectoprogramacionweb.Users.Enterprise.Domain.ValueObjects.EnterprisePassword" access="field">
+            <property name="value" column="password" access="field" type="string"/>
+        </component>
+
     </class>
 </hibernate-mapping>

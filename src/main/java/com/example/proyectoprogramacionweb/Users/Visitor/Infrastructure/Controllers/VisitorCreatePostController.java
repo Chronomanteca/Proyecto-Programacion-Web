@@ -1,7 +1,6 @@
 package com.example.proyectoprogramacionweb.Users.Visitor.Infrastructure.Controllers;
 
-import com.example.proyectoprogramacionweb.Estates.Infrastructure.Controllers.CreateEstatePostController;
-import com.example.proyectoprogramacionweb.Users.Visitor.Application.VisitorCreator;
+import com.example.proyectoprogramacionweb.Users.Visitor.Application.Create.VisitorCreator;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
