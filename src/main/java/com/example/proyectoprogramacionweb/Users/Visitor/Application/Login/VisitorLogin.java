@@ -34,7 +34,7 @@ public class VisitorLogin {
     public VisitorLoginResponse execute(String mail, String password){
         Optional<List<Visitor>> visitors = findAll();
         Optional<Visitor> visitor = visitorExists(mail,password,visitors);
-        TokenGenerationResponse responseToken = this.tokenGeneration.execute(mail);
+        TokenGenerationResponse responseToken = this.tokenGeneration.execute(mail,"ROLE_VISITOR");
         VisitorLoginResponse response = new VisitorLoginResponse(mail, responseToken.token());
         return response;
         }
@@ -48,7 +48,7 @@ public class VisitorLogin {
                     VisitorEmail test = (VisitorEmail) v.data().get("visitorEmail");
                     if(v.data().get("visitorEmail").equals(new VisitorEmail(mail))){
                         if(!visitorPasswordCheck(password,v)){
-                            throw new PasswordNotValid("La contraseña enviada no corresponde con la del mail ingresado"+" "+test.value()+"\n inputed email:"+mail+ " inputed password "+password);
+                            throw new PasswordNotValid("La contraseña enviada no corresponde con la del mail ingresado");
                         }
                         else{
                             visitor.add(v);
