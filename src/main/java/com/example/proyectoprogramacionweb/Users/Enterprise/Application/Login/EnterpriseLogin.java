@@ -39,7 +39,7 @@ public class EnterpriseLogin {
     public EnterpriseLoginResponse execute(String mail, String password){
         Optional<List<Enterprise>> enterprises = findAll();
         Optional<Enterprise> enterprise = enterpriseExists(mail,password,enterprises);
-        TokenGenerationResponse responseToken = this.tokenGeneration.execute(mail);
+        TokenGenerationResponse responseToken = this.tokenGeneration.execute(mail,"ROLE_ENTERPRISE");
         EnterpriseLoginResponse response = new EnterpriseLoginResponse(mail, responseToken.token());
         return response;
     }

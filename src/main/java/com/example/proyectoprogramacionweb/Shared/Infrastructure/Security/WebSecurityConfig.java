@@ -16,10 +16,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/v3/api-doc/**",
             "/v3/api-doc.yaml/**",
             "/swagger-ui/**",
-            "/visitors/**",
             "/search/",
-            "/",
-            "/**"
+            "/search/form"
+    };
+
+    private static final String[] AUTH_VISITOR_GET = {
+            "/visitors/{{visitorId}}/appointments"
+
+    };
+    private static final String[] AUTH_ENTERPRISE_GET = {
+            "/enterprises/{{enterpriseId}}/appointments",
+            "/estates/{{estateId}}"
+    };
+
+    private static final String[] AUTH_ENTERPRISE_POST = {
+            "/enterprise/{{enterpriseId}}/appointments/appointment",
+            "/enterprises/{{enterpriseId}}/properties"
+
+    };
+    private static final String[] AUTH_ENTERPRISE_PUT = {
+            "enterprises/{{enterpriseId}}/properties/{{estateId}}/"
+
+    };
+    private static final String[] AUTH_ENTERPRISE_DELETE = {
+            "/enterprises/{{enterpriseId}}/properties/{{estateId}}"
     };
 
     @Override
@@ -31,10 +51,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 antMatchers(HttpMethod.POST, "/Login/Enterprise").permitAll().
                 antMatchers(HttpMethod.POST, "/visitors").permitAll().
                 antMatchers(HttpMethod.POST, "/enterprises").permitAll().
-                antMatchers(HttpMethod.POST, AUTH_WHITELIST).permitAll().
+                antMatchers(HttpMethod.GET, AUTH_VISITOR_GET).hasAnyAuthority("ROLE_VISITOR").
+                antMatchers(HttpMethod.GET, AUTH_ENTERPRISE_GET).hasAnyAuthority("ROLE_ENTERPRISE").
+                antMatchers(HttpMethod.POST, AUTH_ENTERPRISE_POST).hasAnyAuthority("ROLE_ENTERPRISE").
+                antMatchers(HttpMethod.PUT, AUTH_ENTERPRISE_PUT).hasAnyAuthority("ROLE_ENTERPRISE").
+                antMatchers(HttpMethod.DELETE, AUTH_ENTERPRISE_DELETE).hasAnyAuthority("ROLE_ENTERPRISE").
                 antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll().
-                antMatchers(HttpMethod.PUT, AUTH_WHITELIST).permitAll().
-                antMatchers(HttpMethod.DELETE, AUTH_WHITELIST).permitAll().
                 anyRequest().authenticated();
     }
 
