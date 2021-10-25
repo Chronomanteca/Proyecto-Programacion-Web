@@ -14,7 +14,7 @@ public class Appointment {
     private AppointmentDate appointmentDate;
     private AppointmentState state;
 
-    private Appointment() {
+    public Appointment() {
     }
 
     public Appointment(EstateId estateId, VisitorId visitorId, AppointmentDate appointmentDate, AppointmentState state) {

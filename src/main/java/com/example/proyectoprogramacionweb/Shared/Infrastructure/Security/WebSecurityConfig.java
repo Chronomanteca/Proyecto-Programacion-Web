@@ -16,7 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/v3/api-doc/**",
             "/v3/api-doc.yaml/**",
             "/swagger-ui/**",
-            "/search/",
+            "/search",
             "/search/form"
     };
 

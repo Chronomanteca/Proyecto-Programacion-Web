@@ -18,7 +18,7 @@ public class TokenGeneration  {
     private final String SECRET = "SAI";
     private final String CLAIM = "authorities";
     private final String ID = "EstateManagementSystem";
-    private final int  validity  = 100000;
+    private final int  validity  = 300000;
 
     public TokenGeneration() {
     }
