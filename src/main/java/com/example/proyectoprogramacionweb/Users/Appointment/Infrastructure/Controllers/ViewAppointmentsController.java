@@ -6,6 +6,7 @@ import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.VisitorId;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.Appointment;
+import com.example.proyectoprogramacionweb.Users.Appointment.Domain.Exceptions.InvalidAppointmentDate;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects.AppointmentDate;
 import com.example.proyectoprogramacionweb.Users.Appointment.Infrastructure.Hibernate.HibernateAppointmentRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -90,8 +91,9 @@ public class ViewAppointmentsController {
         if(allAppointments.isPresent()){
             allAppointments.get().forEach(a -> {
                 allEstates.get().forEach(e -> {
-                    if((a.data().get("estateId")).equals(e.data().get("estateId"))){
-                        if((e.data().get("estateEnterpriseId")).equals(new EstateId(id.value()))){
+                    EstateId test =(EstateId) a.data().get("estateId");
+                    if((test.value()).compareTo(e.data().get("estateId").toString())==0){
+                        if(e.data().get("estateEnterpriseId").toString().compareTo(new EnterpriseId(id.value()).value())==0){
                             appointments.add(a);
                         }
                     }
