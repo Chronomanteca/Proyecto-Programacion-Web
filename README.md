@@ -39,7 +39,7 @@ Se debe enviar el link del repositorio público con la siguiente información:
 * Mockups
 * BONO: Trabajo en Rabbit
 > Fecha de entrega y sustentación: **octubre 25 de 2021**
-> 
+> LINK DE LOS MOCKUPS: https://xd.adobe.com/view/287a589e-5050-4039-95ea-bdbf0a3aec25-7d29/?fullscreen
 
 ### Entrega 3 (*30%*)
 Se debe enviar el link del repositorio público con la siguiente información:
