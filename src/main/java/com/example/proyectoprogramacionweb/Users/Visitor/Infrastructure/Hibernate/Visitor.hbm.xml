@@ -19,7 +19,7 @@
         </component>
 
         <component name="phoneNumber" class="com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorPhoneNumber" access="field">
-            <property name="value" column="phoneNumber" access="field" type="integer"/>
+            <property name="value" column="phoneNumber" access="field" type="long"/>
         </component>
 
         <component name="email" class="com.example.proyectoprogramacionweb.Users.Visitor.Domain.ValueObjects.VisitorEmail" access="field">

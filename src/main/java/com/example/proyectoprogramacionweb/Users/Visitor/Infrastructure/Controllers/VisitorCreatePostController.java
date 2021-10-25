@@ -29,7 +29,7 @@ public class VisitorCreatePostController {
         private String visitorId;
         private String name;
         private Integer age;
-        private Integer phoneNumber;
+        private Long phoneNumber;
         private String email;
         private String password;
 
@@ -57,11 +57,11 @@ public class VisitorCreatePostController {
             this.age = age;
         }
 
-        public Integer getPhoneNumber() {
+        public Long getPhoneNumber() {
             return phoneNumber;
         }
 
-        public void setPhoneNumber(Integer phoneNumber) {
+        public void setPhoneNumber(Long phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
 

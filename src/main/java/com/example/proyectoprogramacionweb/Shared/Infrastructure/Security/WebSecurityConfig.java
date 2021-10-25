@@ -42,6 +42,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/enterprises/{{enterpriseId}}/properties/{{estateId}}"
     };
 
+    private static final String[] AUTH_WHITELIST_POST = {
+            "/enterprises/",
+            "/visitors/"
+    };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().
@@ -56,6 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 antMatchers(HttpMethod.POST, AUTH_ENTERPRISE_POST).hasAnyAuthority("ROLE_ENTERPRISE").
                 antMatchers(HttpMethod.PUT, AUTH_ENTERPRISE_PUT).hasAnyAuthority("ROLE_ENTERPRISE").
                 antMatchers(HttpMethod.DELETE, AUTH_ENTERPRISE_DELETE).hasAnyAuthority("ROLE_ENTERPRISE").
+                antMatchers(HttpMethod.POST, AUTH_WHITELIST_POST).permitAll().
                 antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll().
                 anyRequest().authenticated();
     }

@@ -12,7 +12,7 @@ public class VisitorCreator {
         this.repository = repository;
     }
 
-    public void execute(String visitorId, String name, Integer age, Integer phoneNumber, String email, String password){
+    public void execute(String visitorId, String name, Integer age, Long phoneNumber, String email, String password){
         Visitor visitor = Visitor.Create(new VisitorId(visitorId), new VisitorName(name), new VisitorAge(age),
                 new VisitorPhoneNumber(phoneNumber), new VisitorEmail(email), new VisitorPassword(password));
         repository.save(visitor);
