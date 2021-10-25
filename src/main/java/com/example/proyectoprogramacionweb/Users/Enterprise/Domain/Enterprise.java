@@ -22,6 +22,11 @@ public class Enterprise {
         this.enterpriseEmail = enterpriseEmail;
         this.enterprisePassword = enterprisePassword;
     }
+
+    public void notifyNewAppointment(String idVisitor){
+        System.out.println("Tiene una nueva cita con el visitante de id: " + idVisitor);
+    }
+
     public static Enterprise Create(EnterpriseId enterpriseId, EnterpriseName enterpriseName,EnterpriseEmail enterpriseEmail, EnterprisePassword enterprisePassword){
         return new Enterprise(enterpriseId,enterpriseName,enterpriseEmail,enterprisePassword);
     }

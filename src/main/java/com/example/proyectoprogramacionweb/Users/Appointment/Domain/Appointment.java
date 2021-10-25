@@ -1,14 +1,16 @@
 package com.example.proyectoprogramacionweb.Users.Appointment.Domain;
 
+import com.example.proyectoprogramacionweb.Shared.Domain.DomainEvents.CreateAppointmentDomainEvent;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.VisitorId;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects.AppointmentDate;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects.AppointmentState;
+import com.example.proyectoprogramacionweb.Shared.Domain.Aggregate.AggregateRoot;
 
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Appointment {
+public class Appointment extends AggregateRoot{
     private EstateId estateId;
     private VisitorId visitorId;
     private AppointmentDate appointmentDate;
@@ -27,6 +29,11 @@ public class Appointment {
     public static Appointment Create(EstateId estateId, VisitorId visitorId, AppointmentDate appointmentDate, AppointmentState state){
         return new Appointment(estateId,visitorId,appointmentDate,state);
     }
+
+    public void createAppointmentEvent(){
+        this.record(new CreateAppointmentDomainEvent(this.estateId.value(),this.visitorId.value()));
+    }
+
     public HashMap<String,Object> data(){
         return new HashMap<String,Object>(){{
             put("estateId",estateId);

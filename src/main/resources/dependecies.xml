@@ -11,8 +11,19 @@
 
     <bean id="RabbitMqPublisher" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqPublisher"/>
 
+    <bean id="DomainEventInformation" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.DomainEventsInformation"/>
+
     <bean id="RabbitMqEventBus" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqEventBus">
         <constructor-arg ref="RabbitMqPublisher" />
+    </bean>
+
+    <bean id="DomainEventJsonDeserializer" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.Serializable.DomainEventJsonDeserializer">
+        <constructor-arg ref="DomainEventInformation" />
+    </bean>
+
+    <bean id="RabbitMqDomainEventConsumer" class="com.example.proyectoprogramacionweb.Shared.Domain.Bus.Event.RabbitMQ.RabbitMqDomainEventsConsumer">
+        <constructor-arg ref="DomainEventInformation" />
+        <constructor-arg ref="DomainEventJsonDeserializer" />
     </bean>
 
     <bean id="TokenGeneration" class="com.example.proyectoprogramacionweb.Shared.Application.TokenGeneration"/>
@@ -31,6 +42,11 @@
         <constructor-arg ref="EstateRepository"/>
     </bean>
 
+
+    <bean id="NotifyNewAppointmentOnCreateAppointment" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Listeners.NotifyNewAppointmentOnCreateAppointment">
+        <constructor-arg ref="NotifyNewAppointment"/>
+    </bean>
+
     <bean id="DomainAppointmentFinder" class="com.example.proyectoprogramacionweb.Users.Appointment.Domain.Services.DomainAppointmentFinder">
         <constructor-arg ref="AppointmentRepository"/>
     </bean>
@@ -43,8 +59,13 @@
         <constructor-arg ref="EnterpriseRepository"/>
     </bean>
 
+    <bean id="NotifyNewAppointment" class="com.example.proyectoprogramacionweb.Users.Enterprise.Application.NotifyNewAppointment.NotifyNewAppointment">
+        <constructor-arg ref="EnterpriseRepository"/>
+    </bean>
+
     <bean id="AppointmentCreator" class="com.example.proyectoprogramacionweb.Users.Appointment.Application.Create.AppointmentCreator">
         <constructor-arg ref="AppointmentRepository"/>
+        <constructor-arg ref="RabbitMqEventBus" />
     </bean>
 
     <bean id="VisitorCreator" class="com.example.proyectoprogramacionweb.Users.Visitor.Application.Create.VisitorCreator">

@@ -22,7 +22,6 @@ public class DomainEventJsonSerializable {
         }});
 
         message.put("meta", new HashMap<String, Serializable>());
-        System.out.println("ACAAAAA " + message);
         return jsonEncode(message);
     }
 
