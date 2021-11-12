@@ -1,10 +1,9 @@
 package com.example.proyectoprogramacionweb.Estates.Estate.Application.Create;
 
-import com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator;
-import com.example.proyectoprogramacionweb.Estates.Domain.Estate;
-import com.example.proyectoprogramacionweb.Estates.Domain.Exceptions.*;
-import com.example.proyectoprogramacionweb.Estates.Domain.Ports.EstateRepository;
-import com.example.proyectoprogramacionweb.Estates.Domain.ValueObjects.*;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Estate;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Exceptions.*;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Ports.EstateRepository;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.ValueObjects.*;
 import com.example.proyectoprogramacionweb.Shared.Domain.Exceptions.UUIDNotValid;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
@@ -13,8 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Optional;
 
 @SpringBootTest
 public class EstateCreatorTest {

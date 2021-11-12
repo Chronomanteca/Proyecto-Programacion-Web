@@ -1,10 +1,6 @@
 package com.example.proyectoprogramacionweb.Users.Enterprise.Application;
 
-import com.example.proyectoprogramacionweb.Estates.Domain.Estate;
-import com.example.proyectoprogramacionweb.Estates.Domain.Ports.EstateRepository;
-import com.example.proyectoprogramacionweb.Estates.Domain.ValueObjects.*;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
-import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
 import com.example.proyectoprogramacionweb.Users.Enterprise.Application.Create.EnterpriseCreator;
 import com.example.proyectoprogramacionweb.Users.Enterprise.Domain.Enterprise;
 import com.example.proyectoprogramacionweb.Users.Enterprise.Domain.Ports.EnterpriseRepository;

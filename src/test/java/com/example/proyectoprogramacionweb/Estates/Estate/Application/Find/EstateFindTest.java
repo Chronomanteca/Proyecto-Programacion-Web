@@ -1,12 +1,10 @@
 package com.example.proyectoprogramacionweb.Estates.Estate.Application.Find;
 
-import com.example.proyectoprogramacionweb.Estates.Application.Find.EstateCityFinder;
-import com.example.proyectoprogramacionweb.Estates.Application.Find.EstateFinder;
-import com.example.proyectoprogramacionweb.Estates.Domain.Estate;
-import com.example.proyectoprogramacionweb.Estates.Domain.Exceptions.EstateNotFound;
-import com.example.proyectoprogramacionweb.Estates.Domain.Exceptions.EstateNotFoundByCity;
-import com.example.proyectoprogramacionweb.Estates.Domain.Ports.EstateRepository;
-import com.example.proyectoprogramacionweb.Estates.Domain.ValueObjects.*;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Estate;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Exceptions.EstateNotFound;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Exceptions.EstateNotFoundByCity;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Ports.EstateRepository;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.ValueObjects.*;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
 import org.junit.jupiter.api.Assertions;

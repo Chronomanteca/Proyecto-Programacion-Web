@@ -1,12 +1,11 @@
 package com.example.proyectoprogramacionweb.Users.Appointment.Infrastructure.Controllers;
 
-import com.example.proyectoprogramacionweb.Estates.Domain.Estate;
-import com.example.proyectoprogramacionweb.Estates.Infrastructure.Hibernate.HibernateEstateRepository;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Estate;
+import com.example.proyectoprogramacionweb.Estates.Estate.Infrastructure.Hibernate.HibernateEstateRepository;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.VisitorId;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.Appointment;
-import com.example.proyectoprogramacionweb.Users.Appointment.Domain.Exceptions.InvalidAppointmentDate;
 import com.example.proyectoprogramacionweb.Users.Appointment.Domain.ValueObjects.AppointmentDate;
 import com.example.proyectoprogramacionweb.Users.Appointment.Infrastructure.Hibernate.HibernateAppointmentRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ThreadPoolExecutor;
 
 @RestController
 public class ViewAppointmentsController {

@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="EstateRepository" class="com.example.proyectoprogramacionweb.Estates.Infrastructure.Hibernate.HibernateEstateRepository"/>
+    <bean id="EstateRepository" class="com.example.proyectoprogramacionweb.Estates.Estate.Infrastructure.Hibernate.HibernateEstateRepository"/>
 
     <bean id="AppointmentRepository" class="com.example.proyectoprogramacionweb.Users.Appointment.Infrastructure.Hibernate.HibernateAppointmentRepository"/>
 
@@ -38,7 +38,7 @@
 
     <bean id="VisitorRepository" class="com.example.proyectoprogramacionweb.Users.Visitor.Infrastructure.Hibernate.HibernateVisitorRepository"/>
 
-    <bean id="DomainEstateFinder" class="com.example.proyectoprogramacionweb.Estates.Domain.Services.DomainEstateFinder">
+    <bean id="DomainEstateFinder" class="com.example.proyectoprogramacionweb.Estates.Estate.Domain.Services.DomainEstateFinder">
         <constructor-arg ref="EstateRepository"/>
     </bean>
 
@@ -51,7 +51,7 @@
         <constructor-arg ref="AppointmentRepository"/>
     </bean>
 
-    <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Application.Create.EstateCreator">
+    <bean id="EstateCreator" class="com.example.proyectoprogramacionweb.Estates.Estate.Application.Create.EstateCreator">
         <constructor-arg ref="EstateRepository" />
     </bean>
 
@@ -72,22 +72,22 @@
         <constructor-arg ref="VisitorRepository"/>
     </bean>
 
-    <bean id="EstatePriceUpdater" class="com.example.proyectoprogramacionweb.Estates.Application.Update.EstatePriceUpdater">
+    <bean id="EstatePriceUpdater" class="com.example.proyectoprogramacionweb.Estates.Estate.Application.Update.EstatePriceUpdater">
         <constructor-arg ref="EstateRepository"/>
         <constructor-arg ref="DomainEstateFinder"/>
     </bean>
 
-    <bean id="EstateActionUpdater" class="com.example.proyectoprogramacionweb.Estates.Application.Update.EstateActionUpdater">
+    <bean id="EstateActionUpdater" class="com.example.proyectoprogramacionweb.Estates.Estate.Application.Update.EstateActionUpdater">
         <constructor-arg ref="EstateRepository"/>
         <constructor-arg ref="DomainEstateFinder"/>
     </bean>
 
-    <bean id="EstateDescriptionUpdater" class="com.example.proyectoprogramacionweb.Estates.Application.Update.EstateDescriptionUpdater">
+    <bean id="EstateDescriptionUpdater" class="com.example.proyectoprogramacionweb.Estates.Estate.Application.Update.EstateDescriptionUpdater">
         <constructor-arg ref="EstateRepository"/>
         <constructor-arg ref="DomainEstateFinder"/>
     </bean>
 
-    <bean id="EstateDeleter" class="com.example.proyectoprogramacionweb.Estates.Application.Delete.EstateDeleter">
+    <bean id="EstateDeleter" class="com.example.proyectoprogramacionweb.Estates.Estate.Application.Delete.EstateDeleter">
         <constructor-arg ref="EstateRepository"/>
         <constructor-arg ref="DomainEstateFinder"/>
     </bean>
