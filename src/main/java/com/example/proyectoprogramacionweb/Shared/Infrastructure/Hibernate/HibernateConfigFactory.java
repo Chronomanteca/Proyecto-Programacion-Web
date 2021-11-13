@@ -26,7 +26,7 @@ public class HibernateConfigFactory {
         sessionFactory.setDataSource(this.dataSource());
         sessionFactory.setHibernateProperties(this.hibernateProperties());
 
-        FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Estates/Infrastructure/Hibernate/Estate.hbm.xml");
+        FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Estates/Estate/Infrastructure/Hibernate/Estate.hbm.xml");
         FileSystemResource resource2 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Enterprise/Infrastructure/Hibernate/Enterprise.hbm.xml");
         FileSystemResource resource3 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Appointment/Infrastructure/Hibernate/Appointment.hbm.xml");
         FileSystemResource resource4 = new FileSystemResource("./src/main/java/com/example/proyectoprogramacionweb/Users/Visitor/Infrastructure/Hibernate/Visitor.hbm.xml");
