@@ -5,10 +5,7 @@ import com.example.proyectoprogramacionweb.Estates.Estate.Domain.ValueObjects.*;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EstateId;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 public class Estate {
     private EstateId estateId;
@@ -67,6 +64,12 @@ public class Estate {
         this.description = description;
     }
 
+    public void addAppointment(EstateAppointment appointment){
+        if(this.appointments.isEmpty())
+            this.appointments = Optional.of(new ArrayList<EstateAppointment>());
+        this.appointments.get().add(appointment);
+    }
+
     public HashMap<String,Object> data(){
         HashMap<String,Object> data = new HashMap<>(){{
             put("estateId",estateId.value());
@@ -86,7 +89,10 @@ public class Estate {
     }
     public HashMap<String,Object> dataAppointmets(){
         HashMap<String, Object> data = new HashMap<>();
-        data.replace("appointments", null);
+        if(this.appointments.isPresent())
+            data.put("appointments",this.appointments.get().toString());
+        else
+            data.put("appointments", null);
         return data;
     }
 

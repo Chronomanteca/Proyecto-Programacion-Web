@@ -1,12 +1,18 @@
 package com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Controllers;
 
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Exceptions.EstateAlreadyExists;
+import com.example.proyectoprogramacionweb.Shared.Domain.Exceptions.EmailNotValid;
 import com.example.proyectoprogramacionweb.Users.Enterprise.Application.Create.EnterpriseCreator;
+import com.example.proyectoprogramacionweb.Users.Enterprise.Domain.Exceptions.EnterpriseAlreadyExists;
+import com.example.proyectoprogramacionweb.Users.Enterprise.Domain.Exceptions.InvalidEnterpriseName;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @RestController
 @Tag(name="Enterprise",description = "The Enterprise API")
@@ -22,6 +28,24 @@ public class CreateEnterprisePostController {
         this.creator.execute(request.getEnterpriseId(),request.getName(),request.getEnterpriseEmail(), request.getEnterprisePassword());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
+
+    @ExceptionHandler(EnterpriseAlreadyExists.class)
+    @ResponseStatus(code = HttpStatus.CONFLICT)
+    public ResponseEntity<HashMap> handleEstateAlreadyExists(EnterpriseAlreadyExists exception){
+        HashMap<String, String> response = new HashMap<>() {{
+            put("error", exception.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+    @ExceptionHandler({InvalidEnterpriseName.class, InvalidEnterpriseName.class, EmailNotValid.class})
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    public ResponseEntity<HashMap> handleBadRequest(RuntimeException exception){
+        HashMap<String, String> response = new HashMap<>() {{
+            put("error", exception.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
     static class EnterpriseRequest{
         private String enterpriseId;
         private String name;

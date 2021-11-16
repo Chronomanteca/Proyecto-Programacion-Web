@@ -3,6 +3,7 @@ package com.example.proyectoprogramacionweb.Estates.Estate.Infrastructure.Contro
 import com.example.proyectoprogramacionweb.Estates.Estate.Application.Create.EstateCreator;
 import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Exceptions.*;
 import com.example.proyectoprogramacionweb.Estates.Estate.Infrastructure.Schema.ErrorSchema;
+import com.example.proyectoprogramacionweb.Shared.Domain.Exceptions.EmailNotValid;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -47,7 +48,7 @@ public class CreateEstatePostController {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
 
-    @ExceptionHandler({InvalidAddress.class, InvalidEstateAction.class, InvalidEstateArea.class, InvalidEstateBathroomNumber.class, InvalidEstateCity.class, InvalidEstatePrice.class, InvalidEstateRoomsNumber.class, InvalidEstateType.class, InvalidEstateDescription.class})
+    @ExceptionHandler({InvalidAddress.class, InvalidEstateAction.class, InvalidEstateArea.class, InvalidEstateBathroomNumber.class, InvalidEstateCity.class, InvalidEstatePrice.class, InvalidEstateRoomsNumber.class, InvalidEstateType.class, InvalidEstateDescription.class, EmailNotValid.class})
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     public ResponseEntity<HashMap> handleBadRequest(RuntimeException exception) {
         HashMap<String, String> response = new HashMap<>() {{
