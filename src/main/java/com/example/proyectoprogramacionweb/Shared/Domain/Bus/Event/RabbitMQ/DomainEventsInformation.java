@@ -13,6 +13,7 @@ public class DomainEventsInformation {
     public DomainEventsInformation() {
         indexedDomainEvent.put("appointment.create", CreateAppointmentDomainEvent.class);
         domainEventSubscribers.put("proyectoProgramacionWebApplication.Users.Appointment.appointment.create", "NotifyNewAppointmentOnCreateAppointment");
+        domainEventSubscribers.put("proyectoProgramacionWebApplication.Users.Appointment.appointment.create.estate","NewAppointmentOnEstate");
     }
 
     public Class<? extends DomainEvent> getDomainEvent(String name) {

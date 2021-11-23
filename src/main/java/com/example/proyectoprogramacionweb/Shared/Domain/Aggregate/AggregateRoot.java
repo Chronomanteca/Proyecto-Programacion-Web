@@ -16,7 +16,6 @@ public abstract class AggregateRoot {
         return events;
     }
 
-    final protected void record(DomainEvent event){
-        domainEvents.add(event);
+    final protected void record(DomainEvent event){domainEvents.add(event);
     }
 }

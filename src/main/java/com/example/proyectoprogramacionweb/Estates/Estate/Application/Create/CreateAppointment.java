@@ -14,9 +14,11 @@ public class CreateAppointment {
         this.finder = finder;
     }
 
-    public void execute(String id, EstateAppointment appointment){
+    public void execute(String id, String appoinmenDate, String visitorId){
         Estate e = finder.execute(id);
+        EstateAppointment appointment = new EstateAppointment(appoinmenDate,visitorId);
         e.addAppointment(appointment);
+        System.out.println("Termina");
         repository.save(e);
     }
 }

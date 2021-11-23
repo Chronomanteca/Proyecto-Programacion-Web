@@ -41,6 +41,7 @@ public class RabbitMqDomainEventsConsumer {
     }
 
     private Object subscriberFor(String queueName) throws Exception {
+
         if(!this.information.validateEventSubscriber(queueName)) {
             throw new Exception("No hay listerer asociado a la cola " + queueName);
         }

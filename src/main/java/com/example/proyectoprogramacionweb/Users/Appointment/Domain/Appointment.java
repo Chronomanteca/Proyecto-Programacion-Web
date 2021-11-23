@@ -31,7 +31,7 @@ public class Appointment extends AggregateRoot{
     }
 
     public void createAppointmentEvent(){
-        this.record(new CreateAppointmentDomainEvent(this.estateId.value(),this.visitorId.value()));
+        this.record(new CreateAppointmentDomainEvent(this.estateId.value(),this.visitorId.value(), this.appointmentDate.value()));
     }
 
     public HashMap<String,Object> data(){

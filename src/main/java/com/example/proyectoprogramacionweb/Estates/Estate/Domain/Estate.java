@@ -65,8 +65,9 @@ public class Estate {
     }
 
     public void addAppointment(EstateAppointment appointment){
-        if(this.appointments.isEmpty())
+        if(this.appointments == null || this.appointments.isEmpty()){
             this.appointments = Optional.of(new ArrayList<EstateAppointment>());
+        }
         this.appointments.get().add(appointment);
     }
 

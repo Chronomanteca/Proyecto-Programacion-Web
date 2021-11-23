@@ -42,6 +42,13 @@
         <constructor-arg ref="EstateRepository"/>
     </bean>
 
+    <bean id="NewAppointmentOnEstate" class="com.example.proyectoprogramacionweb.Estates.Estate.Infrastructure.Listeners.NewAppointmentOnEstate">
+        <constructor-arg ref="CreateAppointment"/>
+    </bean>
+
+    <bean id="CreateAppointment" class="com.example.proyectoprogramacionweb.Estates.Estate.Application.Create.CreateAppointment">
+        <constructor-arg ref="EstateRepository"/>
+    </bean>
 
     <bean id="NotifyNewAppointmentOnCreateAppointment" class="com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Listeners.NotifyNewAppointmentOnCreateAppointment">
         <constructor-arg ref="NotifyNewAppointment"/>

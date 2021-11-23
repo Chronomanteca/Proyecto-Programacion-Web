@@ -24,7 +24,7 @@ public final class RabbitMqPublisher {
                         .setContentEncoding("uft-8")
                         .setContentType("application/json").build()
         );
+        rabbitTemplate.send(exchangeName, domainEvent.eventName(), message);
 
-        rabbitTemplate.send(exchangeName, "appointment.create", message);
     }
 }

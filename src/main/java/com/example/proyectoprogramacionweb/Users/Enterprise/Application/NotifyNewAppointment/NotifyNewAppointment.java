@@ -21,8 +21,8 @@ public class NotifyNewAppointment {
         Optional<List<Enterprise>> enterprises = findAll();
         Optional<Enterprise> enterprise = enterpriseExists("61b7183b-49c6-481a-9c7b-3227315f8ef0", enterprises);
         Enterprise realEnterprise = enterprise.get();
+
         realEnterprise.notifyNewAppointment(idVisitor);
-        System.out.println("Si llega");
         //Optional<Enterprise> optional =repository.find(new EnterpriseId(estateId));
         //if(optional.isPresent()){
         //    Enterprise enterprise = optional.get();
