@@ -19,6 +19,6 @@ public class CreateAppointment {
         EstateAppointment appointment = new EstateAppointment(appoinmenDate,visitorId);
         e.addAppointment(appointment);
         System.out.println("Termina");
-        repository.save(e);
+        //repository.save(e);
     }
 }

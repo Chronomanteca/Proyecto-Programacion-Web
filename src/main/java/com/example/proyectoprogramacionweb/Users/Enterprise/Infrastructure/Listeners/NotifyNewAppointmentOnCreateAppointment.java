@@ -14,7 +14,7 @@ public final class NotifyNewAppointmentOnCreateAppointment {
 
     @EventListener
     public void on(CreateAppointmentDomainEvent event) {
-        this.notifyNewAppointment.execute(event.aggregateId(), event.getIdVisitor());
+        this.notifyNewAppointment.execute(event.aggregateId(), event.getIdVisitor(), event.getAppointmentDate());
     }
 
 }

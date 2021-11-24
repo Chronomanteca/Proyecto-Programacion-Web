@@ -1,9 +1,14 @@
 package com.example.proyectoprogramacionweb.Users.Enterprise.Application.NotifyNewAppointment;
 
+import com.example.proyectoprogramacionweb.Estates.Estate.Application.Find.EstateFinder;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Estate;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Ports.EstateRepository;
+import com.example.proyectoprogramacionweb.Estates.Estate.Domain.Services.DomainEstateFinder;
 import com.example.proyectoprogramacionweb.Shared.Domain.Ids.EnterpriseId;
 import com.example.proyectoprogramacionweb.Users.Enterprise.Domain.Enterprise;
 import com.example.proyectoprogramacionweb.Users.Enterprise.Domain.Exceptions.EnterpriseNotFound;
 import com.example.proyectoprogramacionweb.Users.Enterprise.Domain.Ports.EnterpriseRepository;
+import com.example.proyectoprogramacionweb.Users.Enterprise.Infrastructure.Hibernate.HibernateEnterpriseRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,24 +17,21 @@ import java.util.Optional;
 public class NotifyNewAppointment {
 
     private EnterpriseRepository repository;
+    private EstateFinder estateFinder;
 
-    public NotifyNewAppointment(EnterpriseRepository repository) {
+    public NotifyNewAppointment(EnterpriseRepository repository, EstateFinder estateFinder) {
         this.repository = repository;
+        this.estateFinder = estateFinder;
     }
 
-    public void execute(String estateId, String idVisitor){
+    public void execute(String estateId, String idVisitor, String appointmentDate){
+        Estate estate = estateFinder.execute(estateId);
+        String idEnterprise = (String) estate.data().get("estateEnterpriseId");
         Optional<List<Enterprise>> enterprises = findAll();
-        Optional<Enterprise> enterprise = enterpriseExists("61b7183b-49c6-481a-9c7b-3227315f8ef0", enterprises);
+        Optional<Enterprise> enterprise = enterpriseExists(idEnterprise, enterprises);
         Enterprise realEnterprise = enterprise.get();
 
         realEnterprise.notifyNewAppointment(idVisitor);
-        //Optional<Enterprise> optional =repository.find(new EnterpriseId(estateId));
-        //if(optional.isPresent()){
-        //    Enterprise enterprise = optional.get();
-        //    enterprise.notifyNewAppointment(idVisitor);
-        //    System.out.println("Si llega");
-
-        //}
     }
 
     private Optional<Enterprise> enterpriseExists(String idEnterprise, Optional<List<Enterprise>> enterprises) {

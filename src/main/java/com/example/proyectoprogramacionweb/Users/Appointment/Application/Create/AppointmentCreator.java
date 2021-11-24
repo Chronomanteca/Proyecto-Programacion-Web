@@ -23,7 +23,7 @@ public class AppointmentCreator {
         //Validar la fecha de la cita
         Appointment appointment = Appointment.Create(new EstateId(estateId),
                 new VisitorId(visitorId), new AppointmentDate(date), new AppointmentState(state));
-        repository.save(appointment);
+        //repository.save(appointment);
         appointment.createAppointmentEvent();
         this.eventBus.publish(appointment.pullDomainEvents());
     }

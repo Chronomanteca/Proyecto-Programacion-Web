@@ -90,7 +90,7 @@ public class Estate {
     }
     public HashMap<String,Object> dataAppointmets(){
         HashMap<String, Object> data = new HashMap<>();
-        if(this.appointments.isPresent())
+        if(!(this.appointments == null) && this.appointments.isPresent())
             data.put("appointments",this.appointments.get().toString());
         else
             data.put("appointments", null);

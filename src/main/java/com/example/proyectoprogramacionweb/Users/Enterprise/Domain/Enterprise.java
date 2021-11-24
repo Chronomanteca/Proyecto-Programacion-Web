@@ -24,7 +24,7 @@ public class Enterprise {
     }
 
     public void notifyNewAppointment(String idVisitor){
-        System.out.println("Tiene una nueva cita con el visitante de id: " + idVisitor);
+        System.out.println("El enterprise con id: "+ this.enterpriseId +" Tiene una nueva cita con el visitante de id: " + idVisitor);
     }
 
     public static Enterprise Create(EnterpriseId enterpriseId, EnterpriseName enterpriseName,EnterpriseEmail enterpriseEmail, EnterprisePassword enterprisePassword){
