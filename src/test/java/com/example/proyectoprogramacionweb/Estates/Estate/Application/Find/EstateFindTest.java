@@ -26,7 +26,7 @@ public class EstateFindTest {
     void setup(){
         this.estate = new Estate(new EstateId("dc5b86e0-2a6a-4e55-89bc-290d95b296f3"), new EstatePrice(5000d),
                 new EstateType("Apartment"), new EstateAction("rent"), new EstateRoomsNumber(5),
-                new EstateBathroomNumber(3), new EstateArea(150d), new EstateCity("Bogotá"),
+                new EstateBathroomNumber(3), new EstateArea(150d), new EstateCity("Bogota"),
                 new EstateAddress("Calle 1#4-48"), new EstateDescription("Apto bonito"),
                 new EnterpriseId("df4d35cd-f67a-45ef-9a33-5cadf1b29969"), null);
         this.repository = Mockito.mock(EstateRepository.class);
@@ -34,7 +34,7 @@ public class EstateFindTest {
         list.add(estate);
         Mockito.when(repository.find(new EstateId("dc5b86e0-2a6a-4e55-89bc-290d95b296f3")))
                 .thenReturn(Optional.of(estate));
-        Mockito.when(repository.findByCity(new EstateCity("Bogotá"))).thenReturn(Optional.of(list));
+        Mockito.when(repository.findByCity(new EstateCity("Bogota"))).thenReturn(Optional.of(list));
     }
     @Test
     void should_find_estate_byId(){
@@ -44,13 +44,13 @@ public class EstateFindTest {
     @Test
     void should_find_byCity(){
         EstateCityFinder finder = new EstateCityFinder(repository);
-        Assertions.assertEquals(finder.execute("Bogotá"),list);
+        Assertions.assertEquals(finder.execute("Bogota"),list);
     }
     @Test
     void should_not_find_byCity(){
         EstateCityFinder finder = new EstateCityFinder(repository);
         Assertions.assertThrows(EstateNotFoundByCity.class, () ->{
-            finder.execute("Medellín");
+            finder.execute("Medellin");
         });
     }
     @Test

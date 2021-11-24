@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.Locale;
 
@@ -21,12 +22,18 @@ public class AppointmentDate extends StringValueObject {
     }
 
     private void validate(String date) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        LocalDateTime now = LocalDateTime.now();
-        LocalDateTime test = LocalDateTime.parse(date,dtf);
-        if(test.isBefore(now)){
-            throw new InvalidAppointmentDate("No se puede crear una cita antes de la fecha actual\nFecha de hoy: "+dtf.format(now)+" Fecha ingresada "+dtf.format(test));
+        try {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            LocalDateTime now = LocalDateTime.now();
+            LocalDateTime test = LocalDateTime.parse(date,dtf);
+            if(test.isBefore(now)){
+                throw new InvalidAppointmentDate("No se puede crear una cita antes de la fecha actual\nFecha de hoy: "+dtf.format(now)+" Fecha ingresada "+dtf.format(test));
+            }
+        }catch (DateTimeParseException e){
+            throw new InvalidAppointmentDate("El formato de la fecha es invalido");
         }
+
+
 
 
         }
